@@ -3,18 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cloud Infra Service Desk · Carter</title>
+  <meta name="theme-color" content="#04060d">
+  <title>Cloud Infra Service Desk · carter0684</title>
   <meta name="description" content="Organisation-neutral job and ticket portal for cloud infrastructure teams: React, FastAPI, AWS CDK, Amazon Bedrock.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div id="progress"></div>
+<canvas id="bg" aria-hidden="true"></canvas>
+
 <header class="site">
   <div class="wrap">
-    <a class="brand" href="index.html">Carter</a>
+    <a class="brand" href="index.html">carter0684</a>
     <nav>
-      <a href="index.html"><span class="en">Home</span><span class="zh">首頁</span></a>
-      <a href="project.html" aria-current="page"><span class="en">Project</span><span class="zh">項目</span></a>
+      <a href="index.html"><span class="en">home</span><span class="zh">首頁</span></a>
+      <a href="project.html" aria-current="page"><span class="en">project</span><span class="zh">項目</span></a>
       <button class="lang-btn" id="lang-btn" type="button" aria-label="Switch language">中文</button>
     </nav>
   </div>
@@ -22,39 +26,43 @@
 
 <main class="wrap">
   <div class="hero">
-    <h1>Cloud Infra Service Desk</h1>
-    <p class="role"><span class="en">Job &amp; ticket portal for cloud infrastructure teams</span><span class="zh">雲端基礎架構團隊嘅工單入口</span></p>
+    <p class="prompt"><span class="dot"></span><span class="en">&gt; cat project.md &nbsp;·&nbsp; MIT licence</span><span class="zh">&gt; cat project.md &nbsp;·&nbsp; MIT 授權</span></p>
+    <h1 class="glitch" data-text="Cloud Infra Service Desk"><span class="en">Cloud Infra Service Desk</span><span class="zh">Cloud Infra Service Desk</span></h1>
+    <p class="role"><span id="typed"
+        data-en="Job &amp; ticket portal|AI-assisted analysis|Cost · CMDB · Security|Config-driven, not hard-coded"
+        data-zh="工單入口|AI 輔助分析|成本 · CMDB · 安全|靠設定,唔寫死"></span><span class="caret"></span></p>
     <p class="lead">
       <span class="en">Assign, track and escalate IT jobs, ask an AI assistant about them, and keep the team's cloud tooling in one place. Your organisation's name, domains, admins and AWS accounts are configuration, not code.</span>
       <span class="zh">派發、追蹤同升級 IT 工單,向 AI 助手查詢,並將團隊嘅雲端工具集中一處。機構名稱、網域、管理員同 AWS 帳戶全部係設定,唔係寫死喺 code 入面。</span>
     </p>
     <div class="btns">
-      <a class="btn primary" href="https://github.com/carter0684/cloud-infra-service-desk" rel="noopener"><span class="en">View on GitHub</span><span class="zh">喺 GitHub 睇</span></a>
-      <a class="btn" href="#deploy"><span class="en">How to run it</span><span class="zh">點樣運行</span></a>
+      <a class="btn primary" href="https://github.com/carter0684/cloud-infra-service-desk" rel="noopener"><span class="en">View on GitHub →</span><span class="zh">喺 GitHub 睇 →</span></a>
+      <a class="btn" href="#deploy"><span class="en">Run it locally</span><span class="zh">本機運行</span></a>
+    </div>
+    <div class="stats reveal">
+      <div class="stat"><b data-count="1400" data-suffix="+">0</b><span><span class="en">automated tests</span><span class="zh">自動化測試</span></span></div>
+      <div class="stat"><b data-count="6">0</b><span><span class="en">AWS CDK stacks</span><span class="zh">AWS CDK stack</span></span></div>
+      <div class="stat"><b data-count="16">0</b><span><span class="en">optional integrations</span><span class="zh">可選整合</span></span></div>
+      <div class="stat"><b data-count="0">0</b><span><span class="en">company data in the code</span><span class="zh">程式碼內嘅公司資料</span></span></div>
     </div>
   </div>
 
-  <section id="features">
-    <h2><span class="en">What it does</span><span class="zh">功能</span></h2>
+  <section id="features" class="reveal">
+    <h2><span class="idx">01 · <span class="en">CAPABILITIES</span><span class="zh">能力</span></span><span class="en">What it does</span><span class="zh">功能</span></h2>
     <div class="grid">
-      <div class="card"><h3><span class="en">Tickets</span><span class="zh">工單</span></h3><p><span class="en">Create, assign, comment, attach files, follow a status flow with an audit log, and get an AI analysis of each job.</span><span class="zh">建立、指派、留言、附件、狀態流程同審計記錄,每張工單都有 AI 分析。</span></p></div>
-      <div class="card"><h3><span class="en">Cost &amp; resources</span><span class="zh">成本與資源</span></h3><p><span class="en">Cost analysis, billing by service, savings plan cost, CMDB with topology, and the AWS Health dashboard.</span><span class="zh">成本分析、按服務計費、Savings Plan 成本、帶拓撲嘅 CMDB,同 AWS Health 儀表板。</span></p></div>
-      <div class="card"><h3><span class="en">Security</span><span class="zh">安全</span></h3><p><span class="en">Security Hub scores and findings, WAF rule monitoring, and Route 53 DNS records with an audit trail for every change.</span><span class="zh">Security Hub 評分同發現、WAF 規則監控,以及每次改動都有審計記錄嘅 Route 53 DNS 管理。</span></p></div>
-      <div class="card"><h3><span class="en">Operations</span><span class="zh">維運</span></h3><p><span class="en">Patching schedules, multi-region website monitoring, calendars and public holidays.</span><span class="zh">修補排程、多區域網站監控、日曆同公眾假期。</span></p></div>
-      <div class="card"><h3><span class="en">Collaboration</span><span class="zh">協作</span></h3><p><span class="en">Team chat, voice and video calls, file sharing, feedback and bug reports with AI triage.</span><span class="zh">團隊聊天、語音/視像通話、檔案分享,以及帶 AI 分流嘅意見與錯誤回報。</span></p></div>
-      <div class="card"><h3><span class="en">Optional integrations</span><span class="zh">可選整合</span></h3><p><span class="en">Freshservice, Meraki, Site-to-Site VPN tools and more. All are off by default and appear in the menu only when you enable them.</span><span class="zh">Freshservice、Meraki、Site-to-Site VPN 工具等。預設全部關閉,啟用後先會出現喺選單。</span></p></div>
+      <div class="card"><h3><span class="ico">#</span><span class="en">Tickets</span><span class="zh">工單</span></h3><p><span class="en">Create, assign, comment, attach files, follow a status flow with an audit log, and get an AI analysis of each job.</span><span class="zh">建立、指派、留言、附件、狀態流程同審計記錄,每張工單都有 AI 分析。</span></p></div>
+      <div class="card"><h3><span class="ico">$</span><span class="en">Cost &amp; resources</span><span class="zh">成本與資源</span></h3><p><span class="en">Cost analysis, billing by service, savings plan cost, CMDB with topology, and the AWS Health dashboard.</span><span class="zh">成本分析、按服務計費、Savings Plan 成本、帶拓撲嘅 CMDB,同 AWS Health 儀表板。</span></p></div>
+      <div class="card"><h3><span class="ico">&#9919;</span><span class="en">Security</span><span class="zh">安全</span></h3><p><span class="en">Security Hub scores and findings, WAF rule monitoring, and Route 53 DNS records with an audit trail for every change.</span><span class="zh">Security Hub 評分同發現、WAF 規則監控,以及每次改動都有審計記錄嘅 Route 53 DNS 管理。</span></p></div>
+      <div class="card"><h3><span class="ico">&#9881;</span><span class="en">Operations</span><span class="zh">維運</span></h3><p><span class="en">Patching schedules, multi-region website monitoring, calendars and public holidays.</span><span class="zh">修補排程、多區域網站監控、日曆同公眾假期。</span></p></div>
+      <div class="card"><h3><span class="ico">&#9670;</span><span class="en">AI &amp; collaboration</span><span class="zh">AI 與協作</span></h3><p><span class="en">Team chat, voice and video calls, an AI assistant grounded in your knowledge base, and bug reports with AI triage.</span><span class="zh">團隊聊天、語音/視像通話、以知識庫為基礎嘅 AI 助手,以及帶 AI 分流嘅錯誤回報。</span></p></div>
+      <div class="card"><h3><span class="ico">+</span><span class="en">Optional integrations</span><span class="zh">可選整合</span></h3><p><span class="en">Freshservice, Meraki, Site-to-Site VPN tools and more. All are off by default and appear in the menu only when you enable them.</span><span class="zh">Freshservice、Meraki、Site-to-Site VPN 工具等。預設全部關閉,啟用後先會出現喺選單。</span></p></div>
     </div>
   </section>
 
-  <section id="architecture">
-    <h2><span class="en">Architecture</span><span class="zh">架構</span></h2>
+  <section id="architecture" class="reveal">
+    <h2><span class="idx">02 · <span class="en">SYSTEM</span><span class="zh">系統</span></span><span class="en">Architecture</span><span class="zh">架構</span></h2>
     <div class="diagram">
-      <svg viewBox="0 0 900 330" role="img" aria-label="Architecture: browser to CloudFront and S3, ALB with Entra ID sign-in, ECS Fargate running FastAPI, backed by DynamoDB, S3, Bedrock, SES and Secrets Manager, with cross-account roles to member accounts">
-        <defs>
-          <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <path d="M0 0L10 5L0 10z" fill="currentColor" style="fill:var(--muted)"/>
-          </marker>
-        </defs>
+      <svg viewBox="0 0 900 330" role="img" aria-label="Architecture: browser to CloudFront and S3, ALB with Entra ID sign-in, ECS Fargate running FastAPI, backed by DynamoDB, S3, Bedrock, SES, Secrets Manager and cross-account roles">
         <rect class="box" x="20" y="125" width="120" height="60" rx="10"/>
         <text x="80" y="153" text-anchor="middle" font-size="14" font-weight="700">Browser</text>
         <text class="sub" x="80" y="171" text-anchor="middle">Web · apps</text>
@@ -67,7 +75,7 @@
         <text x="275" y="238" text-anchor="middle" font-size="14" font-weight="700">ALB</text>
         <text class="sub" x="275" y="256" text-anchor="middle">Entra ID sign-in (OIDC)</text>
 
-        <rect class="box" x="410" y="210" width="150" height="60" rx="10"/>
+        <rect class="box v" x="410" y="210" width="150" height="60" rx="10"/>
         <text x="485" y="238" text-anchor="middle" font-size="14" font-weight="700">ECS Fargate</text>
         <text class="sub" x="485" y="256" text-anchor="middle">FastAPI backend</text>
 
@@ -75,7 +83,7 @@
         <text x="755" y="42" text-anchor="middle" font-size="14" font-weight="700">DynamoDB · S3</text>
         <text class="sub" x="755" y="60" text-anchor="middle">data and attachments (KMS)</text>
 
-        <rect class="box" x="640" y="92" width="230" height="52" rx="10"/>
+        <rect class="box v" x="640" y="92" width="230" height="52" rx="10"/>
         <text x="755" y="114" text-anchor="middle" font-size="14" font-weight="700">Amazon Bedrock</text>
         <text class="sub" x="755" y="132" text-anchor="middle">AI analysis and chat</text>
 
@@ -87,48 +95,57 @@
         <text x="755" y="260" text-anchor="middle" font-size="14" font-weight="700">Your AWS accounts</text>
         <text class="sub" x="755" y="278" text-anchor="middle">read-only / cross-account roles</text>
 
-        <path class="edge" d="M140 145 L200 80"/>
-        <path class="edge" d="M140 165 L200 235"/>
-        <path class="edge" d="M350 240 L410 240"/>
-        <path class="edge" d="M560 225 L640 46"/>
-        <path class="edge" d="M560 230 L640 118"/>
-        <path class="edge" d="M560 240 L640 190"/>
-        <path class="edge" d="M560 255 L640 268"/>
+        <path id="p1" class="edge" d="M140 145 L200 80"/>
+        <path id="p2" class="edge" d="M140 165 L200 235"/>
+        <path id="p3" class="edge" d="M350 240 L410 240"/>
+        <path id="p4" class="edge" d="M560 225 L640 46"/>
+        <path id="p5" class="edge" d="M560 230 L640 118"/>
+        <path id="p6" class="edge" d="M560 240 L640 190"/>
+        <path id="p7" class="edge" d="M560 255 L640 268"/>
+
+        <circle class="pkt" r="3.5"><animateMotion dur="2.6s" repeatCount="indefinite" path="M140 165 L200 235 L350 240 L410 240 L560 255 L640 268"/></circle>
+        <circle class="pkt" r="3.5"><animateMotion dur="2.6s" begin="0.9s" repeatCount="indefinite" path="M140 165 L200 235 L350 240 L410 240 L560 230 L640 118"/></circle>
+        <circle class="pkt" r="3.5"><animateMotion dur="2.6s" begin="1.7s" repeatCount="indefinite" path="M140 145 L200 80"/></circle>
       </svg>
     </div>
   </section>
 
-  <section id="stack">
-    <h2><span class="en">Tech stack</span><span class="zh">技術</span></h2>
+  <section id="stack" class="reveal">
+    <h2><span class="idx">03 · <span class="en">TECH</span><span class="zh">技術</span></span><span class="en">Tech stack</span><span class="zh">技術棧</span></h2>
     <div class="card">
       <table>
-        <tr><th><span class="en">Frontend</span><span class="zh">前端</span></th><td>React 18, Vite; Capacitor (Android/iOS) and Tauri (Windows) shells</td></tr>
-        <tr><th><span class="en">Backend</span><span class="zh">後端</span></th><td>Python, FastAPI, boto3</td></tr>
-        <tr><th><span class="en">Data</span><span class="zh">資料</span></th><td>SQLite locally; DynamoDB and S3 on AWS</td></tr>
-        <tr><th><span class="en">Sign-in</span><span class="zh">登入</span></th><td><span class="en">Mock login locally; Microsoft Entra ID through the ALB on AWS</span><span class="zh">本機用模擬登入;AWS 上經 ALB 使用 Microsoft Entra ID</span></td></tr>
-        <tr><th>AI</th><td><span class="en">Rule-based locally; Amazon Bedrock on AWS</span><span class="zh">本機用規則式;AWS 上用 Amazon Bedrock</span></td></tr>
-        <tr><th>IaC</th><td>AWS CDK (Python), CloudFormation</td></tr>
-        <tr><th><span class="en">Licence</span><span class="zh">授權</span></th><td>MIT</td></tr>
+        <tr><th>frontend</th><td>React 18, Vite; Capacitor (Android/iOS) and Tauri (Windows) shells</td></tr>
+        <tr><th>backend</th><td>Python, FastAPI, boto3</td></tr>
+        <tr><th>data</th><td><span class="en">SQLite locally; DynamoDB and S3 on AWS</span><span class="zh">本機用 SQLite;AWS 上用 DynamoDB 同 S3</span></td></tr>
+        <tr><th>sign-in</th><td><span class="en">Mock login locally; Microsoft Entra ID through the ALB on AWS</span><span class="zh">本機用模擬登入;AWS 上經 ALB 使用 Microsoft Entra ID</span></td></tr>
+        <tr><th>ai</th><td><span class="en">Rule-based locally; Amazon Bedrock on AWS</span><span class="zh">本機用規則式;AWS 上用 Amazon Bedrock</span></td></tr>
+        <tr><th>iac</th><td>AWS CDK (Python), CloudFormation</td></tr>
+        <tr><th>licence</th><td>MIT</td></tr>
       </table>
     </div>
   </section>
 
-  <section id="deploy">
-    <h2><span class="en">Try it locally</span><span class="zh">本機試用</span></h2>
-    <p class="en" style="color:var(--muted)">No AWS account is needed for a local trial. You need Python 3.12+ and Node.js 20+.</p>
-    <p class="zh" style="color:var(--muted)">本機試用唔需要 AWS 帳戶。需要 Python 3.12+ 同 Node.js 20+。</p>
-<pre><code># backend
-cd backend
-python -m venv .venv &amp;&amp; .\.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-Copy-Item .env.example .env        # set SEED_ADMIN_EMAILS
-python -m uvicorn app.main:app --reload --port 8101
+  <section id="deploy" class="reveal">
+    <h2><span class="idx">04 · <span class="en">RUN</span><span class="zh">運行</span></span><span class="en">Try it locally</span><span class="zh">本機試用</span></h2>
+    <p style="color:var(--muted)">
+      <span class="en">No AWS account is needed for a local trial. You need Python 3.12+ and Node.js 20+.</span>
+      <span class="zh">本機試用唔需要 AWS 帳戶。需要 Python 3.12+ 同 Node.js 20+。</span>
+    </p>
+    <div class="term">
+      <div class="bar"><i></i><i></i><i></i><span>powershell — cloud-infra-service-desk</span><button class="copy" type="button">copy</button></div>
+<pre><span class="c"># backend</span>
+<span class="p">$</span> cd backend
+<span class="p">$</span> python -m venv .venv &amp;&amp; .\.venv\Scripts\Activate.ps1
+<span class="p">$</span> pip install -r requirements.txt
+<span class="p">$</span> Copy-Item .env.example .env        <span class="c"># set SEED_ADMIN_EMAILS</span>
+<span class="p">$</span> python -m uvicorn app.main:app --reload --port 8101
 
-# frontend (new terminal)
-cd frontend
-npm install
-npm run dev                        # http://localhost:5200</code></pre>
-    <p>
+<span class="c"># frontend (new terminal)</span>
+<span class="p">$</span> cd frontend
+<span class="p">$</span> npm install
+<span class="p">$</span> npm run dev                        <span class="c"># http://localhost:5200</span></pre>
+    </div>
+    <p style="color:var(--muted)">
       <span class="en">For a production deployment on AWS (CDK stacks, Entra ID, container image), follow the README in the repository.</span>
       <span class="zh">喺 AWS 正式部署(CDK stack、Entra ID、容器映像)請參考 repository 內嘅 README。</span>
     </p>
@@ -136,7 +153,7 @@ npm run dev                        # http://localhost:5200</code></pre>
 </main>
 
 <footer>
-  <div class="wrap">© 2026 Carter · <a href="index.html"><span class="en">Back to home</span><span class="zh">返回首頁</span></a></div>
+  <div class="wrap">© 2026 carter0684 · <a href="index.html"><span class="en">back to home</span><span class="zh">返回首頁</span></a></div>
 </footer>
 <script src="script.js"></script>
 </body>

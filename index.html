@@ -3,96 +3,118 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#04060d">
   <title>Carter · Cloud Infrastructure Engineer</title>
-  <meta name="description" content="Personal site of Carter: cloud infrastructure, AWS, automation, and the open-source Cloud Infra Service Desk.">
+  <meta name="description" content="Personal site of Carter: cloud infrastructure, AWS, automation and AI-assisted tooling, plus the open-source Cloud Infra Service Desk.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div id="progress"></div>
+<canvas id="bg" aria-hidden="true"></canvas>
+
 <header class="site">
   <div class="wrap">
-    <a class="brand" href="index.html">Carter</a>
+    <a class="brand" href="index.html">carter0684</a>
     <nav>
-      <a href="#about"><span class="en">About</span><span class="zh">關於我</span></a>
-      <a href="#skills"><span class="en">Skills</span><span class="zh">技能</span></a>
-      <a href="#projects"><span class="en">Projects</span><span class="zh">項目</span></a>
-      <a href="#contact"><span class="en">Contact</span><span class="zh">聯絡</span></a>
+      <a href="#about"><span class="en">about</span><span class="zh">關於我</span></a>
+      <a href="#skills"><span class="en">skills</span><span class="zh">技能</span></a>
+      <a href="#projects"><span class="en">projects</span><span class="zh">項目</span></a>
+      <a href="#contact"><span class="en">contact</span><span class="zh">聯絡</span></a>
       <button class="lang-btn" id="lang-btn" type="button" aria-label="Switch language">中文</button>
     </nav>
   </div>
 </header>
 
 <main class="wrap">
-  <!-- EDIT: your display name, role and one-line summary -->
+  <!-- EDIT: your display name, role phrases and one-line summary -->
   <div class="hero">
-    <h1><span class="en">Hi, I'm Carter.</span><span class="zh">你好,我係 Carter。</span></h1>
-    <p class="role"><span class="en">Cloud Infrastructure Engineer</span><span class="zh">雲端基礎架構工程師</span></p>
+    <p class="prompt"><span class="dot"></span><span class="en">&gt; whoami &nbsp;·&nbsp; status: online</span><span class="zh">&gt; whoami &nbsp;·&nbsp; 狀態:在線</span></p>
+    <h1 class="glitch" data-text="Hi, I'm Carter."><span class="en">Hi, I'm Carter.</span><span class="zh">你好,我係 Carter。</span></h1>
+    <p class="role"><span id="typed"
+        data-en="Cloud Infrastructure Engineer|AWS Automation Builder|Security-minded Developer|AI-assisted Tooling"
+        data-zh="雲端基礎架構工程師|AWS 自動化開發|重視安全嘅開發者|AI 輔助工具"></span><span class="caret"></span></p>
     <p class="lead">
-      <span class="en">I design, automate and look after cloud infrastructure on AWS. I like turning repeated operations work into tools that the whole team can use.</span>
-      <span class="zh">我負責設計、自動化同維運 AWS 雲端基礎架構,鍾意將重複嘅維運工作變成成個團隊都用得到嘅工具。</span>
+      <span class="en">I design, automate and look after cloud infrastructure on AWS, and I turn repeated operations work into tools and AI-assisted workflows that a whole team can use.</span>
+      <span class="zh">我負責設計、自動化同維運 AWS 雲端基礎架構,並將重複嘅維運工作變成成個團隊都用得到嘅工具同 AI 輔助流程。</span>
     </p>
     <div class="btns">
-      <a class="btn primary" href="project.html"><span class="en">See my project</span><span class="zh">睇我嘅項目</span></a>
+      <a class="btn primary" href="project.html"><span class="en">Explore the project →</span><span class="zh">睇我嘅項目 →</span></a>
       <a class="btn" href="https://github.com/carter0684" rel="noopener">GitHub</a>
+    </div>
+
+    <div class="stats reveal">
+      <div class="stat"><b data-count="1400" data-suffix="+">0</b><span><span class="en">automated tests</span><span class="zh">自動化測試</span></span></div>
+      <div class="stat"><b data-count="6">0</b><span><span class="en">AWS CDK stacks</span><span class="zh">AWS CDK stack</span></span></div>
+      <div class="stat"><b data-count="16">0</b><span><span class="en">optional integrations</span><span class="zh">可選整合</span></span></div>
+      <div class="stat"><b data-count="3">0</b><span><span class="en">platforms: web · Android · Windows</span><span class="zh">平台:網頁 · Android · Windows</span></span></div>
     </div>
   </div>
 
-  <section id="about">
-    <h2><span class="en">About</span><span class="zh">關於我</span></h2>
+  <section id="about" class="reveal">
+    <h2><span class="idx">01 · <span class="en">ABOUT</span><span class="zh">關於</span></span><span class="en">About me</span><span class="zh">關於我</span></h2>
     <!-- EDIT: replace with your own story -->
-    <p>
-      <span class="en">My work sits between infrastructure, security and developer tooling: building secure AWS environments, writing infrastructure as code, and shipping small web tools that make day-to-day operations faster and easier to audit.</span>
-      <span class="zh">我嘅工作喺基礎架構、資訊保安同開發工具之間:建立安全嘅 AWS 環境、用 code 管理基礎架構,同埋開發細型網頁工具,令日常維運更快、更易審核。</span>
-    </p>
+    <div class="card">
+      <p style="font-size:17px">
+        <span class="en">My work sits between infrastructure, security and developer tooling: building secure AWS environments, writing infrastructure as code, and shipping small web tools that make day-to-day operations faster and easier to audit. I also experiment with generative AI to analyse tickets, summarise cost and speed up troubleshooting.</span>
+        <span class="zh">我嘅工作喺基礎架構、資訊保安同開發工具之間:建立安全嘅 AWS 環境、用 code 管理基礎架構,同埋開發細型網頁工具,令日常維運更快、更易審核。我亦會用生成式 AI 分析工單、總結成本同加快排查。</span>
+      </p>
+    </div>
   </section>
 
-  <section id="skills">
-    <h2><span class="en">Skills</span><span class="zh">技能</span></h2>
+  <section id="skills" class="reveal">
+    <h2><span class="idx">02 · <span class="en">STACK</span><span class="zh">技術</span></span><span class="en">Skills</span><span class="zh">技能</span></h2>
     <!-- EDIT: keep only what is true for you -->
     <div class="grid">
       <div class="card">
-        <h3>AWS</h3>
+        <h3><span class="ico">&lt;/&gt;</span>AWS</h3>
         <p><span class="en">Multi-account operations, networking, security and cost visibility.</span><span class="zh">多帳戶管理、網絡、安全同成本可視化。</span></p>
         <div class="chips"><span class="chip">ECS Fargate</span><span class="chip">CloudFront</span><span class="chip">WAF</span><span class="chip">Route 53</span><span class="chip">Bedrock</span></div>
       </div>
       <div class="card">
-        <h3><span class="en">Infrastructure as Code</span><span class="zh">基礎架構即代碼</span></h3>
+        <h3><span class="ico">{ }</span><span class="en">Infrastructure as Code</span><span class="zh">基礎架構即代碼</span></h3>
         <p><span class="en">Repeatable, reviewable deployments.</span><span class="zh">可重複、可審閱嘅部署。</span></p>
         <div class="chips"><span class="chip">AWS CDK</span><span class="chip">CloudFormation</span><span class="chip">PowerShell</span></div>
       </div>
       <div class="card">
-        <h3><span class="en">Application development</span><span class="zh">應用程式開發</span></h3>
+        <h3><span class="ico">&gt;_</span><span class="en">Application development</span><span class="zh">應用程式開發</span></h3>
         <p><span class="en">Full-stack tools for operations teams.</span><span class="zh">為維運團隊而做嘅全端工具。</span></p>
         <div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">React</span><span class="chip">DynamoDB</span></div>
       </div>
       <div class="card">
-        <h3><span class="en">Identity &amp; security</span><span class="zh">身份與安全</span></h3>
+        <h3><span class="ico">&#9670;</span><span class="en">Generative AI</span><span class="zh">生成式 AI</span></h3>
+        <p><span class="en">LLMs applied to real operations work, with guardrails.</span><span class="zh">將大型語言模型應用於真實維運工作,並設有防護。</span></p>
+        <div class="chips"><span class="chip">Amazon Bedrock</span><span class="chip">Prompt design</span><span class="chip">AI triage</span></div>
+      </div>
+      <div class="card">
+        <h3><span class="ico">&#9919;</span><span class="en">Identity &amp; security</span><span class="zh">身份與安全</span></h3>
         <p><span class="en">Single sign-on, least privilege and audit trails.</span><span class="zh">單一登入、最小權限同審計記錄。</span></p>
         <div class="chips"><span class="chip">Microsoft Entra ID</span><span class="chip">IAM</span><span class="chip">Security Hub</span></div>
       </div>
     </div>
   </section>
 
-  <section id="projects">
-    <h2><span class="en">Featured project</span><span class="zh">精選項目</span></h2>
+  <section id="projects" class="reveal">
+    <h2><span class="idx">03 · <span class="en">BUILD</span><span class="zh">作品</span></span><span class="en">Featured project</span><span class="zh">精選項目</span></h2>
     <div class="card project-card">
+      <span class="badge">● <span class="en">open source · MIT</span><span class="zh">開源 · MIT</span></span>
       <h3>Cloud Infra Service Desk</h3>
-      <p>
+      <p style="font-size:16px">
         <span class="en">An organisation-neutral job and ticket portal for cloud infrastructure teams. It combines ticketing and AI-assisted analysis with cost, CMDB, security, DNS, health and monitoring tools, and runs locally for a quick trial or on AWS for production.</span>
         <span class="zh">一個唔綁定任何機構嘅雲端基礎架構工單入口。集合工單、AI 輔助分析,同成本、CMDB、安全、DNS、健康狀態及監控工具,可以喺本機試用,亦可以部署到 AWS 正式使用。</span>
       </p>
-      <div class="chips"><span class="chip">React</span><span class="chip">FastAPI</span><span class="chip">AWS CDK</span><span class="chip">Amazon Bedrock</span><span class="chip">MIT</span></div>
+      <div class="chips"><span class="chip">React</span><span class="chip">FastAPI</span><span class="chip">AWS CDK</span><span class="chip">Amazon Bedrock</span><span class="chip">Entra ID SSO</span></div>
       <div class="btns">
-        <a class="btn primary" href="project.html"><span class="en">Project details</span><span class="zh">項目詳情</span></a>
+        <a class="btn primary" href="project.html"><span class="en">Project details →</span><span class="zh">項目詳情 →</span></a>
         <a class="btn" href="https://github.com/carter0684/cloud-infra-service-desk" rel="noopener"><span class="en">Source on GitHub</span><span class="zh">GitHub 原始碼</span></a>
       </div>
     </div>
   </section>
 
-  <section id="contact">
-    <h2><span class="en">Contact</span><span class="zh">聯絡</span></h2>
+  <section id="contact" class="reveal">
+    <h2><span class="idx">04 · <span class="en">CONNECT</span><span class="zh">聯絡</span></span><span class="en">Contact</span><span class="zh">聯絡</span></h2>
     <!-- EDIT: add LinkedIn / e-mail only if you want them public -->
-    <p>
+    <p style="color:var(--muted)">
       <span class="en">The best way to reach me is through GitHub: open an issue on the project or send a message from my profile.</span>
       <span class="zh">最直接嘅聯絡方法係 GitHub:喺項目開 issue,或者喺我嘅個人頁留言。</span>
     </p>
@@ -101,7 +123,7 @@
 </main>
 
 <footer>
-  <div class="wrap">© 2026 Carter · <span class="en">Built with plain HTML and CSS, hosted on GitHub Pages.</span><span class="zh">以純 HTML 同 CSS 製作,托管於 GitHub Pages。</span></div>
+  <div class="wrap">© 2026 carter0684 · <span class="en">plain HTML · CSS · JS, hosted on GitHub Pages</span><span class="zh">純 HTML · CSS · JS,托管於 GitHub Pages</span></div>
 </footer>
 <script src="script.js"></script>
 </body>
